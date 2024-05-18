@@ -18,7 +18,7 @@ file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
     size = (100, 100)  # Change this to match your model's input size
-    image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
+    image = ImageOps.fit(image_data, size)
     img = np.asarray(image)
     img = img / 255.0  # Normalize the image if your model expects normalized input
     img_reshape = np.expand_dims(img, axis=0)  # Add batch dimension
