@@ -5,7 +5,7 @@ from PIL import Image, ImageOps
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model('best_model.hdf5')
+    model = tf.keras.models.load_model('model.hdf5')
     return model
 
 model = load_model()
