@@ -11,13 +11,13 @@ def load_model():
 model = load_model()
 
 st.write("""
-# Flower Detection Classifier
+# Flowers Detection Classifier
 """)
 
 file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
-    size = (64, 64)  # Ensure this matches your model's input size
+    size = (100, 100)  # Change this to match your model's input size
     image = ImageOps.fit(image_data, size)
     img = np.asarray(image)
     img = img / 255.0  # Normalize the image if your model expects normalized input
@@ -31,6 +31,6 @@ else:
     image = Image.open(file).convert('RGB')  # Ensure image is in RGB format
     st.image(image, use_column_width=True)
     prediction = import_and_predict(image, model)
-    class_names = ['dandelion', 'daisy', 'rose', 'sunflower', 'tulip']
+    class_names = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
     string = "OUTPUT : " + class_names[np.argmax(prediction)]
     st.success(string)
