@@ -5,7 +5,7 @@ from PIL import Image, ImageOps
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model('model.hdf5')
+    model = tf.keras.models.load_model('best_model.hdf5')
     return model
 
 model = load_model()
@@ -17,8 +17,8 @@ st.write("""
 file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
-    size = (100, 100)  # Ensure this matches your model's input size
-    image = ImageOps.fit(image_data, size)
+    size = (100, 100)  # Change this to match your model's input size
+    image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
     img = np.asarray(image)
     img = img / 255.0  # Normalize the image if your model expects normalized input
     img_reshape = np.expand_dims(img, axis=0)  # Add batch dimension
