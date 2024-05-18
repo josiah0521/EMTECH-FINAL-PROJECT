@@ -31,6 +31,6 @@ else:
     image = Image.open(file).convert('RGB')  # Ensure image is in RGB format
     st.image(image, use_column_width=True)
     prediction = import_and_predict(image, model)
-    class_names = ['dandelion', 'daisy', 'rose', 'sunflower', 'tulip']
+    class_names = ['daisy', 'dandelion', 'rose', 'sunflower', 'tulip']
     string = "OUTPUT : " + class_names[np.argmax(prediction)]
     st.success(string)
