@@ -14,7 +14,7 @@ st.write("""
 # Flowers Detection Classifier
 """)
 
-file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
+file = st.file_uploader("Select any flower image from your computer that is under this range [tulips, dandelions, daisies, sunflowers, and roses]", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
     size = (100, 100)  # Change this to match your model's input size
